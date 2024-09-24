@@ -6,7 +6,7 @@ Japanese version [here](https://github.com/Miq-x/miqx-api-doc/blob/main/README.m
 This is an API, Miq-x, for generating "quote-like" collage images.  
 There are many similar APIs, but none are designed with such attention to detail as this one.  
 With a variety of fonts, diverse parameters, precise line breaks, and an overwhelming generation speed,  
-it boasts top-class performance in every aspect.
+it boasts top-class performance in every aspect.   
 Everything was developed in Rust :)
 
 > [!IMPORTANT]
