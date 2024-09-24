@@ -1,6 +1,6 @@
 # Miq-x API V4
 
-Japanese version [here](aaaa)
+Japanese version [here](https://github.com/Miq-x/miqx-api-doc/blob/main/README.md)
 
 ## What is this?
 This is an API, Miq-x, for generating "quote-like" collage images.  

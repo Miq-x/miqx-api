@@ -1,6 +1,6 @@
 # Miq-x API V4
 
-English version [here](aaaa)
+English version [here](https://github.com/Miq-x/miqx-api-doc/blob/main/README-EN.md)
 
 ## なにこれ
 名言風コラ画を生成するAPI、Miq-x  
