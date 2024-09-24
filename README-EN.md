@@ -24,7 +24,7 @@ This API is provided with kindness based on **trust** ( ˙꒳​˙ )ིྀ\
 For issues like garbled text, bugs, font additions, etc., please contact us via
 [Issue](https://github.com/Miq-x/miqx-api-doc/issues).
 
-> [!CAUTION] 
+> [!CAUTION]
 > Prohibited Actions:
 >
 > - Distributing your API key to others
@@ -183,15 +183,15 @@ Create a Smash Bros. participation image with the specified icon
 
 | Error Message                              | Description                               |
 | ------------------------------------------ | ----------------------------------------- |
-| `Invalid apikey`                           | The API key is invalid                    |
-| `Text not found`                           | The speech text is missing                |
-| `Param not found`                          | The parameter is missing                  |
-| `Name not found`                           | The speaker's name is missing             |
-| `Mid not found`                            | The MID is missing                        |
-| `Id not found`                             | The ID is missing                         |
+| `Invalid APIkey`                           | The API key is invalid                    |
+| `Invalid Text`                             | The speech text is missing                |
+| `Invalid Param`                            | The parameter is missing                  |
+| `Invalid Name`                             | The speaker's name is missing             |
+| `Invalid Mid`                              | The MID is missing                        |
+| `Invalid Id`                               | The ID is missing                         |
+| `Invalid Metadata`                         | Failed to parse Meta data                 |
 | `Id must contain only digits`              | The ID contains non-digit characters      |
 | `Image not found`                          | No image provided                         |
-| `Meta error`                               | Failed to parse Meta data                 |
 | `Failed to generate Image`                 | Image generation failed                   |
 | `A error occurred during image generation` | An error occurred during image generation |
 | `Failed to execute image generation task`  | Failed to execute image generation task   |
