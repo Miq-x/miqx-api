@@ -7,6 +7,7 @@ English version [here](https://github.com/Miq-x/miqx-api-doc/blob/main/README-EN
 似たAPIはよく見ますが、こんなAPIに細部までこだわって設計されているのは他にはありません  
 豊富なフォント、多彩なパラメーター、絶妙な改行処理、そして圧倒的な生成スピード。  
 すべての面でトップクラスのパフォーマンスを誇ります  
+全てRustで開発したにゃー
 
 
 > [!IMPORTANT]
