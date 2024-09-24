@@ -1,65 +1,77 @@
 # Miq-x API V4
 
-English version [here](https://github.com/Miq-x/miqx-api-doc/blob/main/README-EN.md)
+English version
+[here](https://github.com/Miq-x/miqx-api-doc/blob/main/README-EN.md)
 
 ## なにこれ
-名言風コラ画を生成するAPI、Miq-x  
-似たAPIはよく見ますが、こんなAPIに細部までこだわって設計されているのは他にはありません  
-豊富なフォント、多彩なパラメーター、絶妙な改行処理、そして圧倒的な生成スピード。  
-すべての面でトップクラスのパフォーマンスを誇ります  
-全てRustで開発したにゃー
 
+**Miq-x**
+は名言風のコラ画像を生成するAPIです。類似のAPIは多数存在しますが、Miq-xは細部にまでこだわりデザイン/開発されました：
 
-> [!IMPORTANT]
-> このAPIは信頼のもとに親切心で提供されているものです( ˙꒳​˙ )ིྀ
->
-> 文字化け・バグ・フォント追加等の要望は[Issue](https://github.com/Miq-x/miqx-api-doc/issues)どうぞ
+- **豊富なフォント**：多種多様なフォントから生成可能
+- **多彩なパラメーター**：アイコンの色/反転/文字の色 etc...
+  細かなカスタマイズが可能
+- **絶妙な改行処理**：テキストのレイアウトをピクセル単位で自動調整
+- **圧倒的な生成スピード**：ありえないほど迅速な画像生成
+
+全てがRustで開発されたMiq-xはトップクラスのパフォーマンスを誇ります。
+
+## はじめに
+
+このAPIは**信頼のもとに親切心で提供**されています( ˙꒳​˙ )ིྀ\
+文字化け・バグ・フォント追加等の要望は[Issue](https://github.com/Miq-x/miqx-api-doc/issues)にてご連絡ください。
 
 > [!CAUTION]
-> 以下の行為を禁止します
+> 禁止事項：
 >
-> - apikeyを別の人に配布
-> - パラメーターの改変(name, mid, id, meta, stamp)
-> - 上記による意図的に偽のめいくの生成(開発段階の動作テストは除く)
-> - APIへの意図的な不正なリクエスト
-> - API鯖への悪意のある攻撃
-> - API鯖のIPアドレスの公開
+> - APIキーを他者に配布すること
+> - パラメーター（`name`, `mid`, `id`, `meta`, `stamp`）の改変
+> - 上記の改変による偽のコラ画像生成（開発段階の動作テストを除く）
+> - APIへの不正リクエストの送信
+> - APIサーバーへの悪意ある攻撃
+> - APIサーバーのIPアドレスの公開
+> - その他、常識的に考えて迷惑になる行為
 
-## APIKey
+## APIキーの取得
 
-まぐろに頼んでAPIキーを作成してもらいます(運が良ければ)
+APIキーは運が良ければ「まぐろ」に依頼することで取得できます。詳細はお問い合わせください。
 
-## Miq-x (めいく)
+## Miq-x (めいく) エンドポイント
 
-"{host}/make"エンドポイント (POST)
+指定したアイコンでコラ画を作成
 
-| パラメーター | 説明                             | 必須 |
-| ------------ | -------------------------------- | ---- |
-| `key`        | API Key                          | 〇   |
-| `param`      | パラメーター ("めいくmono" など) | 〇   |
-| `name`       | DisplayName                      | 〇   |
-| `text`       | Text                             | 〇   |
-| `id`         | Message ID                       | 〇   |
-| `mid`        | MID                              | 〇   |
-| `img`        | アイコン画像 png/jpg (バイナリ)  | 〇   |
-| `meta`       | LINE 絵文字描画用                | ×    |
-| `stamp`      | LINE スタンプ描画用              | ×    |
+- **URL**: `{host}/make`
+- **Method**: `POST`
 
-> [!WARNING]
-> valueは全てstringです
+### パラメーター
+
+| パラメーター | 説明                              | 必須 |
+| ------------ | --------------------------------- | ---- |
+| `key`        | APIキー                           | ✅   |
+| `param`      | パラメーター（例："mono"）        | ✅   |
+| `name`       | 発言者の名前                      | ✅   |
+| `text`       | 発言                              | ✅   |
+| `id`         | そのメッセージの固有識別子        | ✅   |
+| `mid`        | 発言者の固有識別子                | ✅   |
+| `img`        | アイコン画像（PNG/JPG、バイナリ） | ✅   |
+| `meta`       | LINE絵文字描画用(後述)            | ❌   |
+| `stamp`      | LINEスタンプ描画用(後述)          | ❌   |
+
+<details>
+<summary>LINEでのみ使用可能な機能はこちら</summary>
 
 ### LINE絵文字の描画
 
-Metaデータに含まれるデータをstringに変換してリクエスト
+Metaデータを文字列に変換してリクエストします。
 
 ```python
 emojiData    = eval(msg.contentMetadata["REPLACE"])
 param["meta"] = str(emojiData["sticon"]["resources"])
 ```
 
-### LINEスタンプ(単体)の描画
+### LINEスタンプ（単体）の描画
 
-Metaデータに含まれるデータをstringに変換してリクエスト
+Metaデータを文字列に変換してリクエストします。
 
 ```python
 stamp_id       = msg.contentMetadata["STKID"]
@@ -67,9 +79,9 @@ stamp_pkg      = msg.contentMetadata["STKPKGID"]
 param["stamp"] = f"{stamp_pkg}_{stamp_id}"
 ```
 
-### LINEスタンプ(組み合わせ)の描画
+### LINEスタンプ（組み合わせ）の描画
 
-Metaデータに含まれるデータをstringに変換してリクエスト
+Metaデータを文字列に変換してリクエストします。
 
 ```python
 param["stamp"] = msg.contentMetadata["CSSTKID"]
@@ -77,27 +89,102 @@ param["stamp"] = msg.contentMetadata["CSSTKID"]
 
 ### アニメーションスタンプ/絵文字の描画
 
-スタンプや絵文字がアニメーションに対応している場合はレスポンスデータに"gif"が追加で返ってきます。
+アニメーションに対応したスタンプや絵文字の場合、レスポンスデータに`gif`が追加されます。
 
 ```python
 with open("res.gif", mode="wb") as f:
     f.write(base64.b64decode(res["gif"]))
 ```
 
-> [!NOTE]
-> gifの描画の挙動は以下の通り
->
-> - 全てのフレーム間隔を10msに補正
-> - フレームが長いスタンプ/絵文字があればそれがおわるまで待機
+GIFの描画動作は以下の通りです：
 
-## 参戦 (スマブラ参戦)
+- 全てのフレーム間隔を10msに補正
+- フレームが長いスタンプ/絵文字があれば、その間隔分待機
 
-"{host}/smash"エンドポイント (POST)
-
-| パラメーター | 説明                            | 必須 |
-| ------------ | ------------------------------- | ---- |
-| `key`        | API Key                         | 〇   |
-| `img`        | アイコン画像 png/jpg (バイナリ) | 〇   |
+</details>
 
 > [!WARNING]
-> valueは全てstringです
+> 全ての`value`は**String**として送信してください。\
+> idはメッセージごとに被らない固有の数字を設定してください。(デバッグ時に助かります)\
+> midはアプリによるとは思いますが、ユーザーIDなどを設定することをおすすめします。
+
+### レスポンス
+
+#### 成功
+
+gifフィールドはLineの動くスタンプ/絵文字の場合のみ含まれます
+
+```json
+{
+    "status": "success",
+    "message": "success",
+    "image": "base64_encoded_image",
+    "gif": "base64_encoded_gif"
+}
+```
+
+#### 失敗
+
+```json
+{
+    "status": "error",
+    "message": "ここにエラーの簡単な説明",
+    "image": ""
+}
+```
+
+## 参戦（スマブラ参戦）エンドポイント
+
+スマブラで見慣れた参戦画像を指定したアイコンで作成
+
+- **URL**: `{host}/smash`
+- **Method**: `POST`
+
+### パラメーター
+
+| パラメーター | 説明                              | 必須 |
+| ------------ | --------------------------------- | ---- |
+| `key`        | APIキー                           | ✅   |
+| `img`        | アイコン画像（PNG/JPG、バイナリ） | ✅   |
+
+> [!WARNING]
+> 全ての`value`は**String**として送信してください。
+
+### レスポンス
+
+#### 成功
+
+```json
+{
+    "status": "success",
+    "message": "success",
+    "image": "base64_encoded_image"
+}
+```
+
+#### 失敗
+
+```json
+{
+    "status": "error",
+    "message": "ここにエラーの簡単な説明",
+    "image": ""
+}
+```
+
+## エラーメッセージ一覧
+
+| エラーメッセージ                           | 説明                       |
+| ------------------------------------------ | -------------------------- |
+| `Invalid apikey`                           | APIキーが無効              |
+| `Text not found`                           | 発言が空である             |
+| `Param not found`                          | パラメーターが空である     |
+| `Name not found`                           | 発言者名が空である         |
+| `Mid not found`                            | MIDが空である              |
+| `Id not found`                             | IDが空である               |
+| `Id must contain only digits`              | IDに数字以外が含まれている |
+| `Image not found`                          | 画像がない                 |
+| `Meta error`                               | Metaデータの解析に失敗     |
+| `Failed to generate Image`                 | 画像生成に失敗             |
+| `A error occurred during image generation` | 画像生成中にエラーが発生   |
+| `Failed to execute image generation task`  | 画像生成タスクの実行に失敗 |
