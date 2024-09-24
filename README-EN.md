@@ -24,7 +24,8 @@ This API is provided with kindness based on **trust** ( ˙꒳​˙ )ིྀ\
 For issues like garbled text, bugs, font additions, etc., please contact us via
 [Issue](https://github.com/Miq-x/miqx-api-doc/issues).
 
-> [!CAUTION] **Prohibited Actions:**
+> [!CAUTION] 
+> Prohibited Actions:
 >
 > - Distributing your API key to others
 > - Modifying parameters (`name`, `mid`, `id`, `meta`, `stamp`)
