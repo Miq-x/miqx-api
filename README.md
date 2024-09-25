@@ -174,17 +174,17 @@ gifフィールドはLineの動くスタンプ/絵文字の場合のみ含まれ
 
 ## エラーメッセージ一覧
 
-| エラーメッセージ                           | 説明                       |
-| ------------------------------------------ | -------------------------- |
-| `Invalid APIkey`                           | APIキーが無効              |
-| `Invalid Text`                             | 発言が空である             |
-| `Invalid Param`                            | パラメーターが空である     |
-| `Invalid Name`                             | 発言者名が空である         |
-| `Invalid Mid`                              | MIDが空である              |
-| `Invalid Id`                               | IDが空である               |
-| `Invalid Metadata`                         | Metaデータの解析に失敗     |
-| `Id must contain only digits`              | IDに数字以外が含まれている |
-| `Image not found`                          | 画像がない                 |
-| `Failed to generate Image`                 | 画像生成に失敗             |
-| `A error occurred during image generation` | 画像生成中にエラーが発生   |
-| `Failed to execute image generation task`  | 画像生成タスクの実行に失敗 |
+| エラーメッセージ                               | 説明                       |
+| ---------------------------------------------- | -------------------------- |
+| `Invalid APIkey`                               | APIキーが無効              |
+| `Invalid Text`                                 | 発言が空である             |
+| `Invalid Param`                                | パラメーターが空である     |
+| `Invalid Name`                                 | 発言者名が空である         |
+| `Invalid Mid`                                  | MIDが空である              |
+| `Invalid Id`                                   | IDが空である               |
+| `Invalid Metadata`                             | Metaデータの解析に失敗     |
+| `Id must contain only alphanumeric characters` | IDに英数字以外が含まれている |
+| `Image not found`                              | 画像がない                 |
+| `Failed to generate Image`                     | 画像生成に失敗             |
+| `A error occurred during image generation`     | 画像生成中にエラーが発生   |
+| `Failed to execute image generation task`      | 画像生成タスクの実行に失敗 |

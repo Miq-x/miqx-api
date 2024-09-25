@@ -181,17 +181,17 @@ Create a Smash Bros. participation image with the specified icon
 
 ## List of Error Messages
 
-| Error Message                              | Description                               |
-| ------------------------------------------ | ----------------------------------------- |
-| `Invalid APIkey`                           | The API key is invalid                    |
-| `Invalid Text`                             | The speech text is missing                |
-| `Invalid Param`                            | The parameter is missing                  |
-| `Invalid Name`                             | The speaker's name is missing             |
-| `Invalid Mid`                              | The MID is missing                        |
-| `Invalid Id`                               | The ID is missing                         |
-| `Invalid Metadata`                         | Failed to parse Meta data                 |
-| `Id must contain only digits`              | The ID contains non-digit characters      |
-| `Image not found`                          | No image provided                         |
-| `Failed to generate Image`                 | Image generation failed                   |
-| `A error occurred during image generation` | An error occurred during image generation |
-| `Failed to execute image generation task`  | Failed to execute image generation task   |
+| Error Message                                  | Description                                 |
+| ---------------------------------------------- | ------------------------------------------- |
+| `Invalid APIkey`                               | The API key is invalid                      |
+| `Invalid Text`                                 | The speech text is missing                  |
+| `Invalid Param`                                | The parameter is missing                    |
+| `Invalid Name`                                 | The speaker's name is missing               |
+| `Invalid Mid`                                  | The MID is missing                          |
+| `Invalid Id`                                   | The ID is missing                           |
+| `Invalid Metadata`                             | Failed to parse Meta data                   |
+| `Id must contain only alphanumeric characters` | The ID contains non-alphanumeric characters |
+| `Image not found`                              | No image provided                           |
+| `Failed to generate Image`                     | Image generation failed                     |
+| `A error occurred during image generation`     | An error occurred during image generation   |
+| `Failed to execute image generation task`      | Failed to execute image generation task     |
